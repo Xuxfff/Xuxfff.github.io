@@ -16,22 +16,37 @@
   <meta name="author" content="">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Xux&#39;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xux&#39;s Blog">
-<meta property="og:url" content="https://www.xuxblog.top/index.html">
+    <meta name="description" content="CandyCMS Pre-Auth RCE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CandyCMS Pre-Auth RCE">
+<meta property="og:url" content="https://www.xuxblog.top/2024/03/25/CandyCMS-Pre-Auth-RCE/index.html">
 <meta property="og:site_name" content="Xux&#39;s Blog">
-<meta property="og:description" content="Xux&#39;s Blog">
+<meta property="og:description" content="CandyCMS Pre-Auth RCE">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.xuxblog.top/2024/03/25/CandyCMS-Pre-Auth-RCE/1.png">
+<meta property="og:image" content="https://www.xuxblog.top/2024/03/25/CandyCMS-Pre-Auth-RCE/2.png">
+<meta property="og:image" content="https://www.xuxblog.top/2024/03/25/CandyCMS-Pre-Auth-RCE/3.png">
+<meta property="og:image" content="https://www.xuxblog.top/2024/03/25/CandyCMS-Pre-Auth-RCE/4.png">
+<meta property="og:image" content="https://www.xuxblog.top/2024/03/25/CandyCMS-Pre-Auth-RCE/5.png">
+<meta property="og:image" content="https://www.xuxblog.top/2024/03/25/CandyCMS-Pre-Auth-RCE/6.png">
+<meta property="article:published_time" content="2024-03-25T08:03:14.000Z">
+<meta property="article:modified_time" content="2024-03-25T08:10:37.204Z">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.xuxblog.top/2024/03/25/CandyCMS-Pre-Auth-RCE/1.png">
   
   
   
-  <title>Xux&#39;s Blog</title>
+  <title>CandyCMS Pre-Auth RCE - Xux&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -114,7 +129,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 100vh;">
+<div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -220,17 +235,61 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Xux&#39;s Blog"></span>
+            <span id="subtitle" data-typed-text="CandyCMS Pre-Auth RCE"></span>
           
         </div>
 
         
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-25 16:03" pubdate>
+          2024年3月25日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          77 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          1 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
       </div>
 
-      
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
-        </div>
       
     </div>
   </div>
@@ -242,199 +301,199 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          style="margin-top: 0">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">CandyCMS Pre-Auth RCE</h1>
+            
+            
+              <div class="markdown-body">
                 
+                <p>CandyCMS Pre-Auth RCE</p>
+<span id="more"></span>
 
+<p>在install.php处可以通过GET传递install参数删除core&#x2F;config.php，并进行重新安装</p>
+<img src="/2024/03/25/CandyCMS-Pre-Auth-RCE/1.png" srcset="/img/loading.gif" lazyload class="" title="1.png">
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/03/25/CandyCMS-Pre-Auth-RCE/" target="_self">
-          CandyCMS Pre-Auth RCE
-        </a>
-      </h2>
+<p>会将ReInstall时传递的<code>DB Host</code>，<code>DB Name</code>，<code>DB Prefix</code> 写入core&#x2F;config.php，</p>
+<img src="/2024/03/25/CandyCMS-Pre-Auth-RCE/2.png" srcset="/img/loading.gif" lazyload class="" title="2.png">
 
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/03/25/CandyCMS-Pre-Auth-RCE/" target="_self">
-        <div>
-          CandyCMS Pre-Auth RCE
-        </div>
-      </a>
+<p>且若数据库连接成功就不会删除core&#x2F;config.php</p>
+<img src="/2024/03/25/CandyCMS-Pre-Auth-RCE/3.png" srcset="/img/loading.gif" lazyload class="" title="3.png">
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-03-25 16:03" pubdate>
-              2024-03-25
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
+<p>可以在<code>DB_PREFIX</code>处传递<code>&#39;);phpinfo();#</code>进行拼接</p>
+<img src="/2024/03/25/CandyCMS-Pre-Auth-RCE/4.png" srcset="/img/loading.gif" lazyload class="" title="4.png">
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/03/13/HTTP%E8%AF%B7%E6%B1%82%E8%B5%B0%E7%A7%81/" target="_self">
-          HTTP请求走私
-        </a>
-      </h2>
+<p>成功写入core&#x2F;config.php：</p>
+<img src="/2024/03/25/CandyCMS-Pre-Auth-RCE/5.png" srcset="/img/loading.gif" lazyload class="" title="5.png">
 
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/03/13/HTTP%E8%AF%B7%E6%B1%82%E8%B5%B0%E7%A7%81/" target="_self">
-        <div>
-          CL 与 TECL 即 Content-LengthTE 即 &#96;Transfer-Encoding 设置了 Transfer-Encoding: chunked 后，请求主体按一系列块的形式发送，并将省略 Content-Length。 在每个块的开头需要用十六进制数指明当前块的长度，数值后接 \r\n（占 2 字节），然后是块的内容，再接 \r\n 表示此块结束。最后用长度为 0 的块表
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-03-13 23:05" pubdate>
-              2024-03-13
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/03/08/Struts2%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" target="_self">
-          Struts2漏洞复现
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/03/08/Struts2%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" target="_self">
-        <div>
-          S2-001在解析一个标签如 &lt;s:textfield name=&quot;username&quot; label=&quot;用户名&quot;/&gt;，在标签的开始和结束位置，会分别调用对应实现类如org.apache.struts2.views.jsp.ComponentTagSupport 中的 doStartTag() 及 doEndTag() 方法：  doStartTag
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-03-08 18:03" pubdate>
-              2024-03-08
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/01/31/2024%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91%E5%88%9D%E8%B5%9BA1natas-WriteUp/" target="_self">
-          2024西湖论剑初赛A1natas WriteUp
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/01/31/2024%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91%E5%88%9D%E8%B5%9BA1natas-WriteUp/" target="_self">
-        <div>
-          2024西湖论剑 A1natas战队WriteUp
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-01-31 23:44" pubdate>
-              2024-01-31
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/01/31/Etherenum-WriteUp/" target="_self">
-          Etherenum-WriteUp
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/01/31/Etherenum-WriteUp/" target="_self">
-        <div>
-          Etherenum-Writeup
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-01-31 12:29" pubdate>
-              2024-01-31
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Etherenum/">#Etherenum</a>
-            
-              <a href="/tags/BlockChain-Security/">#BlockChain Security</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-
-
-
-
+<img src="/2024/03/25/CandyCMS-Pre-Auth-RCE/6.png" srcset="/img/loading.gif" lazyload class="" title="6.png">
+                
               </div>
-            </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>CandyCMS Pre-Auth RCE</div>
+      <div>https://www.xuxblog.top/2024/03/25/CandyCMS-Pre-Auth-RCE/</div>
+    </div>
+    <div class="license-meta">
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年3月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
           </div>
         </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/03/13/HTTP%E8%AF%B7%E6%B1%82%E8%B5%B0%E7%A7%81/" title="HTTP请求走私">
+                        <span class="hidden-mobile">HTTP请求走私</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"chbeNMVzNkGT8To7z3Vxgjyt-gzGzoHsz","appKey":"UzAM1Q24O06mdp7Cc31o9RHm","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
       </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
     
@@ -553,6 +612,99 @@
 
 
 
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script defer src="/js/leancloud.js" ></script>
 
