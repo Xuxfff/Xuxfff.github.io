@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.xuxblog.top/2024/03/25/CandyCMS-Pre-Auth-RCE/</loc>
-    
-    <lastmod>2024-04-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xuxblog.top/2024/03/08/Struts2%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</loc>
     
     <lastmod>2024-03-25</lastmod>
@@ -49,7 +40,7 @@
 
   <url>
     <loc>https://www.xuxblog.top/</loc>
-    <lastmod>2024-04-05</lastmod>
+    <lastmod>2024-06-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -57,14 +48,14 @@
   
   <url>
     <loc>https://www.xuxblog.top/tags/Etherenum/</loc>
-    <lastmod>2024-04-05</lastmod>
+    <lastmod>2024-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.xuxblog.top/tags/BlockChain-Security/</loc>
-    <lastmod>2024-04-05</lastmod>
+    <lastmod>2024-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
